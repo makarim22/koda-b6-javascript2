@@ -4,27 +4,33 @@ A@{ shape: circle, label: "start" }
 
 B@{ shape: lean-r, label: "Input: nilaiGabungan" } 
 
-C@{ shape: rect, label: "for i in nilaiGabungan" }
+C@{ shape: rect, label: "for i in nilaiGabungan" } --> Y
 
 G@{ shape: rect, label: "nilaiGabungan" }
 
-D@{ shape: diamond, label: " nilaiGabungan[i] < nilaiMinimal?" } --> G
+D@{ shape: diamond, label: " nilaiGabungan[i] < nilaiMinimal?" } 
 
 G@{ shape: diamond, label: "nilaiGabungan[i] > nilaiMaksimal?" }
 
-E@{ shape: lean-r, label: "Output: i = nilaiMinimal" }
+E@{ shape: lean-r, label: "Output: i = nilaiMinimal" } --> G
 
-H@{ shape: lean-r, label: "Output: i = nilaiMaksimal" }
+H@{ shape: lean-r, label: "Output: i = nilaiMaksimal" } --> F
+
+Y@{ shape: diamond, label: " nilaiGabungan[i] < nilaiGabungan.length" } -->|False| Z
+
+Z@{ shape: dbl-circ, label: "Stop" }
 
 F@{ shape: rect, label: "i = i + 1"} 
 
 A --> B
 B --> C
-C --> D
 D -- TRUE --> E
 G -- TRUE --> H
 F --> C
 G --> F
+
+Y --> D
+D --> G
 ```
 
 ```mermaid
