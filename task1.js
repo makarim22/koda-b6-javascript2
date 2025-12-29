@@ -3,9 +3,18 @@ const hasilUjianEd = [66, 77, 88, 99]
 
 const gabunganHasilUjian = [...hasilUjianJohn, ...hasilUjianEd]
 
-nilaiSorted = gabunganHasilUjian.sort();
-nilaiMinimal = nilaiSorted[0];
-nilaiMaksimal = nilaiSorted[nilaiSorted.length - 1];
+let nilaiMinimal = gabunganHasilUjian[0];
+let nilaiMaksimal = gabunganHasilUjian[0];
+
+for (let i = 0; i < gabunganHasilUjian.length; i++) {
+   if (gabunganHasilUjian[i] < nilaiMinimal) {
+       nilaiMinimal = gabunganHasilUjian[i];
+   }
+   if (gabunganHasilUjian[i] > nilaiMaksimal) {
+       nilaiMaksimal = gabunganHasilUjian[i];
+   }
+};
+
 console.log("nilai terendah ujian: " + nilaiMinimal);
 console.log("nilai tertinggi ujian: " + nilaiMaksimal);
 
